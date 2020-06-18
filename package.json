@@ -1,0 +1,30 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "A tech bloggin web site",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feuerbacherb/tech-blog.git"
+  },
+  "author": "Brent Fuerbacher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feuerbacherb/tech-blog/issues"
+  },
+  "homepage": "https://github.com/feuerbacherb/tech-blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^6.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.13"
+  }
+}
