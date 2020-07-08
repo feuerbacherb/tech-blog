@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create the Users model
-class Users extends Model {
+class User extends Model {
    //set up method to run on instance data (per user) to check password
    checkPassword(loginPW) {
       return bcrypt.comparySunc(loginPw, this.password);
@@ -11,11 +11,10 @@ class Users extends Model {
 }
 
 // define table columns and configuration
-Users.init(
+User.init(
    {
-      // id column
+      // id INT PRIMARY KEY NOT NULL AUTOINCREMENT
       id: {
-         // id INT PRIMARY KEY NOT NULL AUTOINCREMENT
          type: DataTypes.INTEGER,
          allowNull: false,
          primaryKey: true,
@@ -23,7 +22,7 @@ Users.init(
       },
       // username STRING NOT NULL
       username: {
-         type: DataType.STRING,
+         type: DataTypes.STRING,
          allowNull: false
       },
       // email STRING NOT NULL validate
@@ -61,8 +60,8 @@ Users.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'users'
+      modelName: 'user'
    }
 );
 
-module.exports = Users;
+module.exports = User;

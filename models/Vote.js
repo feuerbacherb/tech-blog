@@ -1,28 +1,30 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create Article model
-class Article extends Model {}
+class Vote extends Model {}
 
-// define table columns and configuration
-Article.init(
+Vote.init (
    {
-      // id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT
       id: {
          type: DataTypes.INTEGER,
-         allowNull: false,
          primaryKey: true,
          autoIncrement: true
       },
-      // article_id INTEGER NOT NULL
-      article_id: {
+      user_id: {
          type: DataTypes.INTEGER,
-         allowNull: false
+         allowNull: false,
+         references: {
+            model: 'user',
+            key: 'id'
+         }
       },
-      // category_id INTEGER NOT NULL
-      category_id: {
+      post_id: {
          type: DataTypes.INTEGER,
-         allowNull: false
+         allowNull: false,
+         references: {
+            model: 'post',
+            key: 'id'
+         }
       }
    },
    {
@@ -30,8 +32,8 @@ Article.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'article'
+      modelName: 'vote'
    }
 );
 
-module.exports = Article;
+module.exports = Vote;
